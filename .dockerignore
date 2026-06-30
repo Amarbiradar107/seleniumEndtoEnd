@@ -1,0 +1,17 @@
+.git
+
+.idea
+
+.vscode
+
+__pycache__
+
+reports
+
+logs
+
+screenshots
+
+.pytest_cache
+
+.env

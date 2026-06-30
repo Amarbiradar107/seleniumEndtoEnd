@@ -1,0 +1,11 @@
+DEFAULT_TIMEOUT = 10
+
+LONG_TIMEOUT = 30
+
+SHORT_TIMEOUT = 5
+
+SCREENSHOT_FOLDER = "screenshots"
+
+REPORT_FOLDER = "reports"
+
+LOG_FOLDER = "logs"

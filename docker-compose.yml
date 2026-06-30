@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+    selenium-hub:
+      image: selenium/hub:latest
+      ports:
+        - "4444:4444"
+    chrome:
+      image: selenium/node-chrome:149.0-20260606
+      depends_on:
+        - selenium-hub
+      environment:
+        SE_EVENT_BUS_HOST: selenium-hub
+        SE_EVENT_BUS_PUBLISH_PORT: 4442
+        SE_EVENT_BUS_SUBSCRIBE_PORT: 4443
+    automation:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      depends_on:
+        - selenium-hub
+        - chrome
+      command: >
+              sh -c "
+                    sleep 15 &&
+                    pytest --browser chrome --env qa
+                    "
+#  firefox:
+#    image: selenium/node-firefox:latest
+#    depends_on:
+#      - selenium-hub
+#    environment:
+#      - SE_EVENT_BUS_HOST=selenium-hub
+#  edge:
+#    image: selenium/node-edge:latest
+#    depends_on:
+#      - selenium-hub
+#    environment:
+#      - SE_EVENT_BUS_HOST=selenium-hub
