@@ -29,7 +29,7 @@ class TestLoginPage(BaseTest):
                 config.username,
                 config.password
             )
-
+        self.logger.info("Login Successful ")
         with allure.step("Verify Inventory"):
             assert inventory.get_page_title() == "Products"
 
