@@ -9,7 +9,7 @@ pipeline {
             steps {
 
                 git branch: 'main',
-                    url: 'https://github.com/your-org/QA-Automation-Framework.git'
+                    url: 'https://github.com/Amarbiradar107/seleniumEndtoEnd.git'
 
             }
 
